@@ -31,16 +31,16 @@ public class Ejercicio4 {
 		Collections.sort(lista);
 		System.out.println(lista);
 		
-		System.out.println("Solución recursiva: " + posicionPalabra(lista, "hoola"));
+		System.out.println("Solución recursiva: " + busquedaPos(lista, "hoola"));
 
 	}
 
-	public static Integer posicionPalabra(List<String> lista, String p) {
+	public static Integer busquedaPos(List<String> lista, String p) {
 		
-		return posicionPalabra(lista, p, 0, lista.size(), lista.size()/2);
+		return busquedaPos(lista, p, 0, lista.size(), lista.size()/2);
 	}
 
-	private static Integer posicionPalabra(List<String> lista, String p, int i, int j, int k) {
+	private static Integer busquedaPos(List<String> lista, String p, int i, int j, int k) {
 		if(lista.get(k) == p) {
 			return k;
 		}else if(i == j){
@@ -48,9 +48,9 @@ public class Ejercicio4 {
 		}else {
 			System.out.println("i=" + i + "; j=" + j + "; k=" + k);
 			if(lista.get(k).compareTo(p)>0) {
-				return posicionPalabra(lista, p, i, k, (i+k)/2);
+				return busquedaPos(lista, p, i, k, (i+k)/2);
 			}else {
-				return posicionPalabra(lista, p, k+1, j, (k+j+1)/2);
+				return busquedaPos(lista, p, k+1, j, (k+j+1)/2);
 			}
 		}
 	}
