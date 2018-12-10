@@ -7,8 +7,8 @@
  */
 module Practica4 {
 	requires us.lsi.ejemplosdyv;
-	requires transitive us.lsi.datosCompartidos;
-	requires us.lsi.partecomun;
+	requires transitive DatosCompartidos;
+	requires transitive ParteComun;
 	requires us.lsi.algoritmosrecursivos;
 	
 }

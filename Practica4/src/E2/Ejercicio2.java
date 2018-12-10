@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import us.lsi.dyv.problemasdelistas.ProblemasDeListas;
+
 public class Ejercicio2 {
 
 	public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package Problema1;
 
+import us.lsi.tiposrecursivos.BinaryTree;
+
 public class Ejercicio1 {
 
 	/* Decidir si un árbol binario es equilibrado */
@@ -13,7 +15,16 @@ public class Ejercicio1 {
 	 * sea igual al número de nodos*/
 
 	public static <E> void main(String[] args) {
+		
+		System.out.println(esEquilibrado());
 
 	}
+
+	private static <E> Boolean esEquilibrado(BinaryTree<E> tree) {
+		
+		return null;
+	}
+	
+	
 
 }
