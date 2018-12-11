@@ -1,7 +1,10 @@
 package Problema1;
 
+import java.util.List;
+
+import us.lsi.common.Comparator2;
 import us.lsi.tiposrecursivos.BinaryTree;
-import us.lsi.tiposrecursivos.Tree;
+
 
 public class Ejercicio1 {
 
@@ -24,20 +27,34 @@ public class Ejercicio1 {
 		BinaryTree<Integer> t2 = BinaryTree.leaf(2);
 		BinaryTree<Integer> t3 = BinaryTree.leaf(3);
 		BinaryTree<Integer> t4 = BinaryTree.leaf(4);
-		BinaryTree<Integer> t6 = BinaryTree.binary(27,BinaryTree.binary(42,t1,t2),BinaryTree.binary(59,t3,t4));
+		BinaryTree<Integer> t5 = BinaryTree.empty();
+		BinaryTree<Integer> t6 = BinaryTree.binary(27, BinaryTree.binary(42, t1, t2), BinaryTree.binary(59, t3, t4));
 		System.out.println(t6);
-		
-		
+		System.out.println(t6.getLabel());
+		System.out.println(t6.getLeft());
+		System.out.println(t6.getRight());
 
-		 System.out.println(esAVL(t6));
+		System.out.println(esAVL(t6,t6.getHeight(), false));
 
 	}
 
-	public static boolean esAVL(BinaryTree<Integer> t6) {
-		
-		return true;
+	public static boolean esAVL(BinaryTree<Integer> tree, int u, boolean res) {
+		switch (tree.getType()) {
+		case Empty:
+			res = true;
+			break;
+		case Leaf:
+			res = true;
+			break;
+		case Binary:
+			if() {
+				
+			}
+			
+
+		}
+
+		return res;
 	}
-
-
 
 }
