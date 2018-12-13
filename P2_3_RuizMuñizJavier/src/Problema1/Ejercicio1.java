@@ -27,14 +27,16 @@ public class Ejercicio1 {
 		BinaryTree<Integer> t3 = BinaryTree.leaf(3);
 		BinaryTree<Integer> t4 = BinaryTree.leaf(4);
 		BinaryTree<Integer> t5 = BinaryTree.empty();
-		BinaryTree<Integer> t6 = BinaryTree.binary(27, BinaryTree.binary(42, t1, t2), BinaryTree.binary(59, t3, t4));
-		BinaryTree<Integer> t7 = BinaryTree.binary(85, BinaryTree.binary(54, BinaryTree.binary(35, t1, t2), t3), t4);
+		BinaryTree<Integer> t6 = BinaryTree.binary(56, t1,t2);
+		BinaryTree<Integer> t7 = BinaryTree.binary(27, BinaryTree.binary(42, t1, t2), BinaryTree.binary(59, t3, t4));
+		BinaryTree<Integer> t8 = BinaryTree.binary(85, BinaryTree.binary(54, BinaryTree.binary(35, t1, t2), t3), t4);
+		
 		System.out.println(t6);
-		System.out.println(t6.getLabel());
-		System.out.println(t6.getLeft());
+		System.out.println(t7);
+		System.out.println(t8);
 		System.out.println(t6.getRight());
 
-		System.out.println(esAVL(t6));
+		System.out.println(esAVL(t8));
 
 	}
 
@@ -45,17 +47,18 @@ public class Ejercicio1 {
 			res = true;
 			break;
 		case Leaf:
-			res = false;
+			res = true;
 			break;
 		case Binary:
-			if (tree.getLeft().getHeight() - tree.getRight().getHeight() < 1
-					|| tree.getRight().getHeight() - tree.getLeft().getHeight() < 1
-					|| tree.getRight().getHeight() == tree.getLeft().getHeight()
-					|| tree.getLeft().getHeight() - tree.getRight().getHeight() > 0
-					|| tree.getLeft().getHeight() - tree.getRight().getHeight() > 0) {
+			int altizq = tree.getLeft().getHeight();
+			int altder = tree.getRight().getHeight();
+			if (altizq - altder < 1 && altizq - altder > 0
+					|| altder - altizq < 1 && altder - altder > 0 || altizq == altder) {
 				
 				return esAVL(tree.getLeft()) && esAVL(tree.getRight());
 
+			}else {
+				return false;
 			}
 
 		}
