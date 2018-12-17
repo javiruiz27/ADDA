@@ -33,7 +33,7 @@ public class Ejercicio1 {
 		
 		System.out.println(t6);
 		System.out.println(t7);
-		System.out.println(t8);
+		System.out.println(t8); 
 
 		System.out.println(esAVL(t8));
 
