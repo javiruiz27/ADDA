@@ -11,7 +11,6 @@ public class Ejercicio1 {
 	 * más de una unidad.
 	 */
 
-	// 1.- Crear un árbol binario de búsqueda.
 	/*
 	 * Sea h el número de niveles, la condición que se debe cumplir para que sea
 	 * equilibrado es que 2^(h-1) sea igual al número de nodos
@@ -32,11 +31,12 @@ public class Ejercicio1 {
 		System.out.println(t7);
 		System.out.println(t8);
 
-		System.out.println(esAVL(t8));
+		System.out.println("Árbol equilibrado: " +esAVL(t7));
+		System.out.println("Árbol no equilibrado: " +esAVL(t8));
 
 	}
 
-	public static <E> boolean esAVL(BinaryTree<E> tree) {
+	public static <E extends Comparable<E>> boolean esAVL(BinaryTree<E> tree) {
 		boolean res = false;
 		switch (tree.getType()) {
 		case Empty:

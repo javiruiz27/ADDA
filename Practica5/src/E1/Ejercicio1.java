@@ -1,6 +1,6 @@
 package E1;
 
-import java.util.List;
+
 
 import us.lsi.tiposrecursivos.Tree;
 
@@ -15,25 +15,24 @@ public class Ejercicio1 {
 		Tree<Integer> t3 = Tree.leaf(3);
 		Tree<Integer> t4 = Tree.leaf(4);
 		Tree<Integer> t5 = Tree.nary(27, t1, t2, t3, t4);
-		System.out.println("Resolución: " + contieneEtiqueta(t5, 2, t5.size() - 1));
+		System.out.println("Resolución: " + contieneEtiqueta(t5, 2));
 		System.out.println(t5);
 
 	}
 
-	private static boolean contieneEtiqueta(Tree<Integer> tree, int etq, int c) {
-		boolean res = false;
-		Tree<Integer> r = tree.getChild(c);
-		switch (r.getType()) {
+	public static <E> Boolean contieneEtiqueta(Tree<Integer> tree, E etq) {
+		Boolean res = null;
+		switch (tree.getType()) {
 		case Empty:
 			res = false;
 			break;
 
 		case Leaf:
-			return r.getLabel().equals(etq);
-		
+			res = tree.getLabel().equals(etq);
+			break;
 
 		case Nary:
-			return contieneEtiqueta(tree, etq, c - 1);
+			res = tree.getLabel().equals(etq) || tree.getChildren().stream().anyMatch(x -> contieneEtiqueta(x, etq));
 
 		}
 		return res;
