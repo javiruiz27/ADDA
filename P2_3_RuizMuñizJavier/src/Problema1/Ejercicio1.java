@@ -1,8 +1,5 @@
 package Problema1;
 
-import java.util.List;
-
-import us.lsi.common.Comparator2;
 import us.lsi.tiposrecursivos.BinaryTree;
 
 public class Ejercicio1 {
@@ -27,19 +24,19 @@ public class Ejercicio1 {
 		BinaryTree<Integer> t3 = BinaryTree.leaf(3);
 		BinaryTree<Integer> t4 = BinaryTree.leaf(4);
 		BinaryTree<Integer> t5 = BinaryTree.empty();
-		BinaryTree<Integer> t6 = BinaryTree.binary(56, t1,t2);
+		BinaryTree<Integer> t6 = BinaryTree.binary(56, t1, t2);
 		BinaryTree<Integer> t7 = BinaryTree.binary(27, BinaryTree.binary(42, t1, t2), BinaryTree.binary(59, t3, t4));
 		BinaryTree<Integer> t8 = BinaryTree.binary(85, BinaryTree.binary(54, BinaryTree.binary(35, t1, t2), t3), t4);
-		
+
 		System.out.println(t6);
 		System.out.println(t7);
-		System.out.println(t8); 
+		System.out.println(t8);
 
 		System.out.println(esAVL(t8));
 
 	}
 
-	public static boolean esAVL(BinaryTree<Integer> tree) {
+	public static <E> boolean esAVL(BinaryTree<E> tree) {
 		boolean res = false;
 		switch (tree.getType()) {
 		case Empty:
@@ -51,12 +48,12 @@ public class Ejercicio1 {
 		case Binary:
 			int altizq = tree.getLeft().getHeight();
 			int altder = tree.getRight().getHeight();
-			if (altizq - altder < 1 && altizq - altder > 0
-					|| altder - altizq < 1 && altder - altder > 0 || altizq == altder) {
-				
+			if (altizq - altder < 1 && altizq - altder > 0 || altder - altizq < 1 && altder - altder > 0
+					|| altizq == altder) {
+
 				return esAVL(tree.getLeft()) && esAVL(tree.getRight());
 
-			}else {
+			} else {
 				return false;
 			}
 
