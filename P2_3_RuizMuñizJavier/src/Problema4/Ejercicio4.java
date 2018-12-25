@@ -46,7 +46,7 @@ public class Ejercicio4 {
 		System.out.println(lista);
 
 		int i = 0;
-		while (i < lista.size() ) {
+		while (i < lista.size()) {
 			System.out.println("Solución recursiva " + lista.get(i) + ": " + busquedaPos(lista, lista.get(i)));
 			i++;
 		}
@@ -59,20 +59,20 @@ public class Ejercicio4 {
 
 	private static Integer busquedaPos(List<String> lista, String p, int i, int j, int k, int k2, int res) {
 		if (lista.get(i) == p) {
-			return res = i;
+			res = i;
 		} else if (lista.get(j) == p) {
-			return res = j;
+			res = j;
 		} else if (lista.get(k) == p) {
-			return res = k;
+			res = k;
 		} else if (lista.get(k2) == p) {
-			return res = k2;
+			res = k2;
 		} else if (p.compareTo(lista.get(j)) < 0) {
-			return busquedaPos(lista, p, i, ((j - i) / 3) + i, (2 * (j - i)) / 3, j, res);
+			res = busquedaPos(lista, p, i, ((j - i) / 3) + i, (2 * (j - i)) / 3, j, res);
 		} else if (p.compareTo(lista.get(j)) > 0 && p.compareTo(lista.get(k)) < 0) {
-			return busquedaPos(lista, p, j + 1, ((k - (j + 1)) / 3) + (j + 1), (2 * (k - (j + 1)) / 3) + (j + 1), k,
+			res = busquedaPos(lista, p, j + 1, ((k - (j + 1)) / 3) + (j + 1), (2 * (k - (j + 1)) / 3) + (j + 1), k,
 					res);
 		} else if (p.compareTo(lista.get(k)) > 0) {
-			return busquedaPos(lista, p, k + 1, (k2 - (k + 1)) / 3 + (k + 1), (2 * (k2 - (1 + k)) / 3) + (k + 1), k2,
+			res = busquedaPos(lista, p, k + 1, (k2 - (k + 1)) / 3 + (k + 1), (2 * (k2 - (1 + k)) / 3) + (k + 1), k2,
 					res);
 		}
 		return res;

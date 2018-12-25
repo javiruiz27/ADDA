@@ -31,8 +31,8 @@ public class Ejercicio1 {
 		System.out.println(t7);
 		System.out.println(t8);
 
-		System.out.println("햞bol equilibrado: " +esAVL(t7));
-		System.out.println("햞bol no equilibrado: " +esAVL(t8));
+		System.out.println("햞bol equilibrado: " + esAVL(t7));
+		System.out.println("햞bol no equilibrado: " + esAVL(t8));
 
 	}
 
@@ -51,10 +51,10 @@ public class Ejercicio1 {
 			if (altizq - altder < 1 && altizq - altder > 0 || altder - altizq < 1 && altder - altder > 0
 					|| altizq == altder) {
 
-				return esAVL(tree.getLeft()) && esAVL(tree.getRight());
+				res = esAVL(tree.getLeft()) && esAVL(tree.getRight());
 
 			} else {
-				return false;
+				res = false;
 			}
 
 		}
