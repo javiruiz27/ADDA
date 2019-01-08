@@ -27,12 +27,17 @@ public class Ejercicio1 {
 		BinaryTree<Integer> t7 = BinaryTree.binary(27, BinaryTree.binary(42, t1, t2), BinaryTree.binary(59, t3, t4));
 		BinaryTree<Integer> t8 = BinaryTree.binary(85, BinaryTree.binary(54, BinaryTree.binary(35, t1, t2), t3), t4);
 
-		System.out.println(t6);
-		System.out.println(t7);
-		System.out.println(t8);
-
-		System.out.println("Árbol equilibrado: " + esAVL(t7));
-		System.out.println("Árbol no equilibrado: " + esAVL(t8));
+		System.out.println("Árbol vacío: " + t5);
+		System.out.println("Árbol binario equilibrado: "+ t7);
+		System.out.println("Árbol binario desequilibrado: " + t8);
+		
+		System.out.println("=======================================");
+		
+		System.out.println("SOLUCIONES");
+		System.out.println("Solución para árbol vacío: " + esAVL(t5));
+		System.out.println("Solución para árbol equilibrado: " + esAVL(t7));
+		System.out.println("Solución para árbol no equilibrado: " + esAVL(t8));
+		
 
 	}
 
