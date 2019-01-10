@@ -1,6 +1,7 @@
 package Ejercicios;
 
 import us.lsi.tiposrecursivos.BinaryTree;
+import us.lsi.tiposrecursivos.Tree;
 
 public class Problema1 {
 
@@ -24,28 +25,60 @@ public class Problema1 {
 	}
 
 	public static Integer sumaEtqPares(BinaryTree<Integer> tree) {
-		return sumaEtqPares(tree, tree.size());
-	}
-
-	private static Integer sumaEtqPares(BinaryTree<Integer> tree, int acum) {
-		BinaryTree<Integer> treeAnt = tree;
+		Integer res = 0;
 		switch (tree.getType()) {
+
 		case Empty:
+			break;
 
 		case Leaf:
-			if (tree.getLabel() % 2 != 0) {
-			
-				return sumaEtqPares(tree, acum-1);
+			if (tree.getLabel() % 2 == 0) {
+				res = tree.getLabel();
+
 			}
-			
+			break;
 
 		case Binary:
-			int root = tree.getLabel();
-			if (root % 2 != 0) {
-				return sumaEtqPares(tree.getLeft(), acum) - sumaEtqPares(tree.getRight(), acum-1);
+			if (tree.getLabel() % 2 == 0) {
+				res = tree.getLabel();
+
 			}
+			res = res + sumaEtqPares(tree.getLeft()) + sumaEtqPares(tree.getRight());
+			break;
+
 		}
-		return acum;
+
+		return res;
 	}
+
+	public static Integer sumaEtqPares(Tree<Integer> tree) {
+		Integer res = 0;
+		switch (tree.getType()) {
+
+		case Empty:
+			break;
+
+		case Leaf:
+			if (tree.getLabel() % 2 == 0) {
+				res = tree.getLabel();
+
+			}
+			break;
+
+		case Nary:
+			if (tree.getLabel() % 2 == 0) {
+				res = tree.getLabel();
+
+			}
+			res = res + tree.getChildren().stream().mapToInt(x -> sumaEtqPares(x)).sum();
+
+			break;
+
+		}
+
+		return res;
+	}
+
+
 
 }
