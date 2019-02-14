@@ -20,13 +20,15 @@ public class Ejer117 {
 				BinaryTree.binary("Z", BinaryTree.leaf("H"), BinaryTree.leaf("B")),
 				BinaryTree.binary("T", BinaryTree.leaf("B"), BinaryTree.leaf("C")));
 
-		System.out.println("Recorrido en anchura de: " + bt2 + " = " + recorridoAnchura(bt2));
+		BinaryTree<String> bt1 = BinaryTree.binary("A", BinaryTree.leaf("Z"), BinaryTree.leaf("T"));
+
+		System.out.println("Recorrido en anchura de: " + bt1 + " = " + recorridoAnchura(bt1, new ArrayList<>()));
+		System.out.println("Recorrido en anchura de: " + bt2 + " = " + recorridoAnchura(bt2, new ArrayList<>()));
 
 	}
 
-	public static <E> List<E> recorridoAnchura(BinaryTree<E> bt2) {
-		List<E> res = new ArrayList<>();
-
+	public static <E> List<E> recorridoAnchura(BinaryTree<E> bt2, List<E> res) {
+		
 		switch (bt2.getType()) {
 		case Empty:
 			break;
@@ -35,9 +37,14 @@ public class Ejer117 {
 			res.add(bt2.getLabel());
 			break;
 		case Binary:
-		
+			for(int i = 0; i<bt2.getHeight(); i++) {
+				res.addAll(recorridoAnchura(bt2.getLeft(), res));
+				res.addAll(recorridoAnchura(bt2.getRight(), res));
+				
+			}
+			
 		}
-
+		
 		return res;
 	}
 

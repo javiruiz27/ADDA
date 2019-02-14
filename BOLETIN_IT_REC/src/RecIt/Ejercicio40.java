@@ -32,67 +32,64 @@ public class Ejercicio40 {
 		lOrd.add(6);
 		lOrd.add(7);
 
-		System.out.println(busqueda(l,185));
+		System.out.println(busqueda(l, 185));
 		System.out.println(buscaElem(l, 185, 0));
-		System.out.println(busquedaB(lOrd, 185, 0, lOrd.size()-1, (0+lOrd.size()-1)/2));
+		System.out.println(busquedaB(lOrd, 185, 0, lOrd.size() - 1, (0 + lOrd.size() - 1) / 2));
 
 	}
-	
+
 	/*
-	 * COMPLEJIDAD DEL ALGORITMO RECURSIVO 
-	 * Tamaño: l.size()
-	 * T(n) = 1*T(n-1) + O(n)
+	 * COMPLEJIDAD DEL ALGORITMO RECURSIVO Tamaño: l.size() T(n) = 1*T(n-1) + O(n)
 	 * 
-	 * COMPLEJIDAD DE LA BÚSQUEDA BINARIA
-	 * Tamaño: n = l.size()
-	 * T(n) = 1*T(n/2) + O(n*log(n))
-	 * */
-	
+	 * COMPLEJIDAD DE LA BÚSQUEDA BINARIA Tamaño: n = l.size() T(n) = 1*T(n/2) +
+	 * O(n*log(n))
+	 */
+
 	public static Boolean busqueda(List<Integer> l, int e) {
 		Boolean res = false;
 		int i = 0;
-		while(i<l.size()) {
-			if(e == l.get(i)) {
+		while (i < l.size()) {
+			if (e == l.get(i)) {
 				res = true;
 				break;
 			}
 			i++;
 		}
-		
+
 		return res;
 	}
 
 	public static Boolean buscaElem(List<Integer> l, int e, int i) {
 		Boolean res;
-		if(l.get(i).equals(e)) {
+		if (l.get(i).equals(e)) {
 			res = true;
-			
-		}else if(i == l.size()-1){
+
+		} else if (i == l.size() - 1) {
 			res = false;
-		}else {
-			res = buscaElem(l, e, i+1);
+		} else {
+			res = buscaElem(l, e, i + 1);
 		}
-	
+
 		return res;
 	}
 
-	//Resolución con búsqueda binaria
-	public static Boolean busquedaB(List<Integer> lOrd, int e, int i , int j, int k) {
+	// Resolución con búsqueda binaria
+	public static Boolean busquedaB(List<Integer> lOrd, int e, int i, int j, int k) {
 		Boolean res;
-		if(i == j) {
+		if (i == j) {
 			res = false;
-		}else if(lOrd.get(i)==e || lOrd.get(j)==e || lOrd.get(k) == e) {
+		} else if (lOrd.get(i) == e || lOrd.get(j) == e || lOrd.get(k) == e) {
 			res = true;
-		}else {
-			if(lOrd.get(k)>e) {
-				res = busquedaB(lOrd, e, i, k, (i+k)/2);
-			}else {
-			res = busquedaB(lOrd, e, k+1, j, (k+1+j)/2);	
-				
+		} else {
+			if (lOrd.get(k) > e) {
+				res = busquedaB(lOrd, e, i, k, (i + k) / 2);
+			} else {
+				res = busquedaB(lOrd, e, k + 1, j, (k + 1 + j) / 2);
+
 			}
-			
+
 		}
-		
+
 		return res;
 	}
 
